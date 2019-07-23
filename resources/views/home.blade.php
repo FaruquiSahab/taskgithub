@@ -148,7 +148,7 @@
                         else
                         {
                             $('#mytable').DataTable().ajax.reload(null, false);
-                            $('#myform')[0].reset();
+                            // $('#myform')[0].reset(); //reset() not working
                         }
                     },
                     error:function(data)
@@ -163,7 +163,7 @@
 
         $('#reset').on('click',function()
         {
-            $('#myform')[0].reset();
+            // $('#myform')[0].reset(); //reset() not working
         });
 
         // Build the chart

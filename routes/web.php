@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/encrypt/request', 'HomeController@takeRequest')->name('tr');
+// Route::get('/encrypt/request', 'HomeController@takeRequest')->name('tr');
 Route::resource('students','TestController');
 Route::get('studentsData','TestController@studentsData')->name('studentdata');
 Route::get('/viewfile/{id}','TestController@viewfile')->name('viewfile');

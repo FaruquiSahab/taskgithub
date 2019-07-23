@@ -32,10 +32,10 @@ class HomeController extends Controller
         return view('home',compact('p1','p2'));
     }
 
-    public function takeRequest(Request $request)
-    {
-        // return $request->all();
-        $e_request = encrypt($request->all());
-        return decrypt($e_request);
-    }
+    // public function takeRequest(Request $request)
+    // {
+    //     // return $request->all();
+    //     $e_request = encrypt($request->all());
+    //     return decrypt($e_request);
+    // }
 }
