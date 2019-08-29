@@ -60,7 +60,7 @@ $.extend($.fn, {
 			this.on( "submit.validate", function( event ) {
 				if ( validator.settings.debug ) {
 					// prevent form submit to be able to see console output
-					event.preventDefault();
+					event.preventDefault();	
 				}
 				function handle() {
 					var hidden, result;
@@ -2634,13 +2634,9 @@ laravelValidation = {
                 type: formMethod,
 
                 beforeSend: function (xhr) {
-                	var abc = $(validator.currentForm).attr('method');
-                	if (abc)
-                	{
-	                    if (abc.toLowerCase() !== 'get' && token) {
-	                        return xhr.setRequestHeader('X-XSRF-TOKEN', token);
-	                    }
-                	}
+                    if ($(validator.currentForm).attr('method').toLowerCase() !== 'get' && token) {
+                        return xhr.setRequestHeader('X-XSRF-TOKEN', token);
+                    }
                 }
             }, param )
             ).always(function( response, textStatus ) {

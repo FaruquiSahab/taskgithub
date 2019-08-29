@@ -55,6 +55,8 @@
                                     Login
                                 </button>
 
+                                <a href="{{ url('/redirect') }}" class="btn btn-danger">Login With Google</a>
+
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>

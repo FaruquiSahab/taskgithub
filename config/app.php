@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Karachi',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -164,6 +164,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        PragmaRX\Google2FA\Vendor\Laravel\ServiceProvider::class,
+        Camroncade\Timezone\TimezoneServiceProvider::class,
+        Mookofe\Tail\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -227,6 +231,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Google2FA' => PragmaRX\Google2FA\Vendor\Laravel\Facade::class,
+        'Tail' => Mookofe\Tail\Facades\Tail::class,
 
     ],
 

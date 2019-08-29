@@ -1,0 +1,39 @@
+{{-- Table Initialization --}}
+                    <div class="col-md-12">
+                        <table class="table" id="demotable">
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Attr 1</th>
+                                    <th>Attr 2</th>
+                                    <th>Attr 3</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                {{-- End --}}
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+// Rendering DataTable For Demo Table
+    $('#demotable').DataTable(
+    {
+        "processing": false,
+        "serverSide": false,
+        "ajax": "/demodata",
+        "columns":
+        [
+            { "data": "rownum"},
+            { "data": "column1" },
+            { "data": "column2"},
+            { "data": "column3" },
+            { "data": "column4" },
+            { "data": "action" }
+        ]
+    });
+
+// Route For DataTable of Demo Table
+Route::get('/demodata','HomeController@demodata')->name('demodata');

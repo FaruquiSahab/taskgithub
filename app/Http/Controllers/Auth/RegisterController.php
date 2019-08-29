@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Camroncade\Timezone\Facades\Timezone;
 
 class RegisterController extends Controller
 {
@@ -40,6 +41,21 @@ class RegisterController extends Controller
     }
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $timezone_select = Timezone::selectForm(
+            null,
+            'Select Your Time Zone',
+            ['class' => 'form-control', 'name' => 'timezone']
+        );
+        return view('auth.register', compact('timezone_select'));
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -51,6 +67,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'timezone' => 'required',
         ]);
     }
 
@@ -66,6 +83,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'timezone' => $data['timezone'],
         ]);
     }
 }

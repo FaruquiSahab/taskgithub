@@ -24,15 +24,31 @@ class StudentValidateRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|unique|email',
+            'email' => [
+                'required',
+                'unique:students',
+                'email'
+            ],
             'name' => [
                 'required',
-                'regex:/^[a-zA-Z ]*$/'
+                'regex:/^[a-zA-Z ]+$/',
+                'min:3',
+                'max:20'
             ],
-            'address' => 'required',
-            'father_name' => 'required',
+            'address' => [
+                'required',
+                'regex:/^[a-zA-Z0-9_\- ]+$/',
+                'min:20',
+                'max:50'
+            ],
+            'father_name'  => [
+                'required',
+                'regex:/^[a-zA-Z ]+$/',
+                'min:3',
+                'max:20'
+            ],
             'date_of_birth' => 'required',
-            'file' => [
+            'file_path' => [
                 'required',
                 'mimes:PDF'
             ],
